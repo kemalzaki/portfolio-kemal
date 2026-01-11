@@ -1,0 +1,28 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 60px;
+  border-bottom: 1px solid var(--neon);
+}
+
+.logo {
+  color: var(--neon);
+  text-shadow: 0 0 10px var(--neon);
+}
+
+.navbar ul {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+.navbar a {
+  color: var(--text);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.navbar a:hover {
+  color: var(--pink);
+  text-shadow: 0 0 10px var(--pink);
+}

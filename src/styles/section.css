@@ -1,0 +1,20 @@
+.section {
+  padding: 100px 60px;
+}
+
+.section h2 {
+  color: var(--pink);
+  margin-bottom: 20px;
+}
+
+.card {
+  border: 1px solid var(--neon);
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 0 20px rgba(0, 255, 247, 0.3);
+}
+
+.card a {
+  color: var(--neon);
+  text-decoration: none;
+}

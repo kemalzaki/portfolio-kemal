@@ -1,8 +1,15 @@
-export default function Hero() {
+import "../styles/hero.css";
+
+const Hero = () => {
   return (
-    <section style={{ padding: "80px", textAlign: "center" }}>
-      <h1>Hi, saya Kemal 👋</h1>
-      <p>Web Developer | React | Cybersecurity Enthusiast</p>
+    <section className="hero" data-testid="hero">
+      <h1 className="glitch" data-text="KEMAL">
+        KEMAL
+      </h1>
+      <p className="subtitle">React • Cybersecurity • Systems</p>
+      <span className="scanline" />
     </section>
   );
-}
+};
+
+export default Hero;

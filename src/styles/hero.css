@@ -1,0 +1,33 @@
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.glitch {
+  font-size: 6rem;
+  color: var(--neon);
+  position: relative;
+  text-shadow: 0 0 20px var(--neon);
+}
+
+.subtitle {
+  margin-top: 20px;
+  opacity: 0.8;
+}
+
+.scanline {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: rgba(0, 255, 247, 0.3);
+  animation: scan 4s linear infinite;
+}
+
+@keyframes scan {
+  0% { top: 0; }
+  100% { top: 100%; }
+}
