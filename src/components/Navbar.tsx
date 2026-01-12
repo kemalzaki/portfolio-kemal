@@ -3,7 +3,8 @@ import "../styles/navbar.css";
 const Navbar = () => {
   return (
     <nav className="navbar" data-testid="navbar">
-      <span className="logo">KEMAL.exe</span>
+      <span className="logo">KEMAL.EXE</span>
+
       <ul>
         <li><a href="#about">ABOUT</a></li>
         <li><a href="#projects">PROJECTS</a></li>

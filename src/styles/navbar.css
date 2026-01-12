@@ -1,28 +1,32 @@
 .navbar {
+  position: fixed;
+  top: 0;
+  inset-inline: 0;
+  z-index: 10;
+
   display: flex;
   justify-content: space-between;
-  padding: 20px 60px;
-  border-bottom: 1px solid var(--neon);
-}
+  align-items: center;
 
-.logo {
-  color: var(--neon);
-  text-shadow: 0 0 10px var(--neon);
+  padding: 12px 32px;
+  background: rgba(10,10,10,0.85);
+  backdrop-filter: blur(6px);
+
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
 }
 
 .navbar ul {
   display: flex;
-  gap: 30px;
+  gap: 32px;
   list-style: none;
 }
 
 .navbar a {
-  color: var(--text);
+  color: var(--muted);
   text-decoration: none;
-  transition: 0.3s;
 }
 
 .navbar a:hover {
-  color: var(--pink);
-  text-shadow: 0 0 10px var(--pink);
+  color: var(--accent);
 }

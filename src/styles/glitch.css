@@ -1,0 +1,28 @@
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.glitch::before {
+  opacity: 0.35;
+  transform: translateX(1px);
+  animation: glitch-line 4s infinite steps(1);
+}
+
+.glitch::after {
+  opacity: 0.2;
+  transform: translateX(-1px);
+  animation: glitch-line 5s infinite steps(1) reverse;
+}
+
+@keyframes glitch-line {
+  0%   { clip-path: inset(0 0 95% 0); }
+  20%  { clip-path: inset(30% 0 50% 0); }
+  40%  { clip-path: inset(60% 0 20% 0); }
+  60%  { clip-path: inset(10% 0 80% 0); }
+  80%  { clip-path: inset(40% 0 40% 0); }
+  100% { clip-path: inset(0 0 95% 0); }
+}

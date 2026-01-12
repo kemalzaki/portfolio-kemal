@@ -4,10 +4,14 @@ import About from "./components/About";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import Particles from "./components/Particles";
+import MatrixRain from "./components/MatrixRain";
 
 const App = () => {
   return (
     <>
+      <MatrixRain />
+      <Particles />
       <Navbar />
       <Hero />
       <About />
