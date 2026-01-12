@@ -1,31 +1,111 @@
+/* ================================
+   SYSTEM SECTION PANEL — FROSTED GLASS
+================================ */
+
 .section {
   position: relative;
   z-index: 2;
 
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 160px 40px;
+  max-width: 900px;
+  margin: 120px auto;
+  padding: 48px 56px;
 
-  border-top: 1px solid rgba(255,255,255,0.06);
+  /* frosted glass base */
+  background: rgba(15, 15, 15, 0.45);
+
+  /* terminal glass border */
+  border: 1px solid rgba(0, 255, 247, 0.08);
+
+  /* REAL glass blur */
+  backdrop-filter: blur(8px) saturate(110%);
+  -webkit-backdrop-filter: blur(8px) saturate(110%);
+
+  font-family: var(--font);
+  color: var(--text);
+
+  overflow: hidden;
+
+  animation: boot 0.6s ease-out both;
 }
+
+/* terminal grid inside glass */
+.section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      rgba(255,255,255,0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,0.025) 1px,
+      transparent 1px
+    );
+
+  background-size: 32px 32px;
+  opacity: 0.22;
+
+  pointer-events: none;
+}
+
+/* glass highlight (light reflection) */
+.section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0.06),
+    rgba(255,255,255,0.01),
+    transparent 60%
+  );
+
+  pointer-events: none;
+}
+
+/* ================================
+   SECTION HEADER
+================================ */
 
 .section h2 {
-  font-size: 0.8rem;
-  letter-spacing: 0.4em;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.9rem;
   font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: lowercase;
 
-  color: var(--muted);
-  margin-bottom: 40px;
+  color: var(--neon);
+  margin-bottom: 32px;
 }
+
+/* blinking terminal cursor */
+.cursor {
+  display: inline-block;
+  width: 8px;
+  height: 1em;
+  background: var(--neon);
+  margin-left: 6px;
+  animation: blink 1.2s steps(1) infinite;
+}
+
+/* ================================
+   BODY TEXT
+================================ */
 
 .section p {
-  max-width: 720px;
-  font-size: 0.95rem;
-  line-height: 1.9;
-
-  color: var(--text);
-  opacity: 0.85;
+  max-width: 700px;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.88);
 }
+
+/* ================================
+   PROJECTS — TECHNICAL CATALOG
+================================ */
 
 .projects-grid {
   display: grid;
@@ -34,61 +114,95 @@
   margin-top: 60px;
 }
 
-.card {
-  padding: 32px;
-  border: 1px solid rgba(255,255,255,0.08);
-  background: rgba(255,255,255,0.02);
-
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+.catalog {
+  max-width: 900px;
+  display: grid;
+  gap: 14px;
 }
 
-.card h3 {
-  font-size: 1rem;
-  letter-spacing: 0.15em;
-  font-weight: 500;
+.catalog-list {
+  display: grid;
+  gap: 40px;
 }
 
-.card p {
-  font-size: 0.8rem;
-  color: var(--muted);
+.catalog-item {
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.08);
 }
 
-.card a {
-  margin-top: 20px;
-  font-size: 0.7rem;
-  letter-spacing: 0.3em;
-  text-decoration: none;
-  color: var(--accent);
-}
-
-.contact-block {
-  margin-top: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.contact-block p {
+.catalog-row {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  font-family: "IBM Plex Mono", monospace;
   font-size: 0.85rem;
-  display: flex;
-  gap: 24px;
+  line-height: 1.6;
 }
 
-.contact-block span {
-  width: 80px;
-  color: var(--muted);
-  letter-spacing: 0.25em;
+.catalog-label {
+  opacity: 0.5;
 }
+
+.catalog a {
+  color: var(--neon);
+  text-decoration: none;
+}
+
+.catalog a:hover {
+  text-decoration: underline;
+}
+
+/* ================================
+   CONTACT — SPEC SHEET
+================================ */
+
+.spec {
+  max-width: 600px;
+  display: grid;
+  gap: 12px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.85rem;
+}
+
+.spec-row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+}
+
+.spec-label {
+  opacity: 0.5;
+}
+
+/* ================================
+   FOOTER — BUILD METADATA
+================================ */
 
 .footer {
   padding: 80px 40px;
   text-align: center;
 
+  font-family: "IBM Plex Mono", monospace;
   font-size: 0.7rem;
   letter-spacing: 0.3em;
   color: var(--muted);
 
   border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+/* ================================
+   ANIMATIONS
+================================ */
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+@keyframes boot {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }

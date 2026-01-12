@@ -11,7 +11,9 @@ const App = () => {
   return (
     <>
       <MatrixRain />
+      <div className="grid-overlay" />
       <Particles />
+      {/* rest */}
       <Navbar />
       <Hero />
       <About />
