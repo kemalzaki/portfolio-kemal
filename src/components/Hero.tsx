@@ -4,7 +4,7 @@ import "../styles/glitch.css";
 import "../styles/hero.css";
 
 const Hero = () => {
-  const glitchText = (text) => {
+  const glitchText = (text:string): string => {
     const chars = text.split("");
     const index = Math.floor(Math.random() * chars.length);
     chars[index] = ["#", "@", "%", "Λ", "3"][Math.floor(Math.random() * 5)];
