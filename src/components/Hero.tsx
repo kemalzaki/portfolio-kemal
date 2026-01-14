@@ -1,34 +1,47 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import "../styles/glitch.css";
 import "../styles/hero.css";
 
 const Hero = () => {
+  const glitchText = (text) => {
+    const chars = text.split("");
+    const index = Math.floor(Math.random() * chars.length);
+    chars[index] = ["#", "@", "%", "Λ", "3"][Math.floor(Math.random() * 5)];
+    return chars.join("");
+  };
+
+  const [glitch, setGlitch] = useState(false);
+
+  const [displayText, setDisplayText] = useState("Kemal M.Z.");
+
+  useEffect(() => {
+    const glitchInterval = setInterval(() => { 
+      setDisplayText(glitchText("Kemal M.Z."));
+      setGlitch(true);
+
+      setTimeout(() => {
+        setDisplayText("Kemal M.Z.");
+        setGlitch(false);
+      }, 220);
+    }, Math.random() * 4000 + 3000);
+
+    return () => clearInterval(glitchInterval);
+  }, []);
+
+
   return (
     <motion.section
       className="hero"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1.2 }}
     >
       <div className="hero-inner">
         <motion.h1
-          className="glitch"
-          data-text="Kemal M.Z."
-          animate={{
-            textShadow: [
-              "0 0 0 rgba(0,0,0,0)",
-              "1px 0 0 rgba(255,255,255,0.3)",
-              "0 0 0 rgba(0,0,0,0)",
-            ],
-          }}
-          transition={{
-            repeat: Infinity,
-            duration: 3,
-            ease: "easeInOut",
-          }}
+          className={`glitch ${glitch ? "glitch-active" : ""}`}
+          data-text={displayText}
         >
-          Kemal M.Z.
+          {displayText}
         </motion.h1>
+
 
         <p className="subtitle">
           FRONTEND ENGINEER / CYBERSECURITY ENTHUSIAST

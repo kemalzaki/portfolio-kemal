@@ -8,17 +8,17 @@ const Contact = () => {
       <div className="spec">
         <div className="spec-row">
           <span className="spec-label">EMAIL</span>
-          <span>kemal@proton.me</span>
+          <span>kemalmzaki@gmail.com</span>
         </div>
 
         <div className="spec-row">
           <span className="spec-label">GITHUB</span>
-          <span>github.com/kemal</span>
+          <span>github.com/kemalzaki</span>
         </div>
 
         <div className="spec-row">
           <span className="spec-label">LOCATION</span>
-          <span>ID · Remote</span>
+          <span>ID · Bandung</span>
         </div>
 
         <div className="spec-row">
